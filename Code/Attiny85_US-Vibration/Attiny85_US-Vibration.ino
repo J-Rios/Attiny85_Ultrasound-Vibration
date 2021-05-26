@@ -3,10 +3,14 @@
 #include <avr/sleep.h>
 #include <avr/wdt.h>
 
+/*****************************************************************************/
+
 #define pinEcho 0
 #define pinTrigger 1
 #define pinPot 2
 #define pinMotor 3
+
+/*****************************************************************************/
 
 float d;
 float rango;
@@ -14,10 +18,14 @@ int motor_on;
 volatile int wd_counter = 0;
 Ultrasonic s_ultrasonic(pinTrigger,pinEcho);
 
+/*****************************************************************************/
+
 ISR(WDT_vect)
 {
 	wd_counter++;
 }
+
+/*****************************************************************************/
 
 void setup()
 {
@@ -52,6 +60,8 @@ void loop()
 
 	wd_delay(250);
 }
+
+/*****************************************************************************/
 
 // OJO: LA SENSIBILIDAD SERA DE 15MS (UN CAMBIO MENOR A 15MS NO SE DETECTA Y,
 // EL VALOR MINIMO SERA DE 15MS)
